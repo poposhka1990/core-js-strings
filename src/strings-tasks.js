@@ -156,8 +156,9 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(str, value) {
-  return str.replace(value, '');
+function removeFirstOccurrences(/* str, value */) {
+  // return str.replace(value, '');
+  throw new Error('Not implemented');
 }
 
 /**
@@ -264,12 +265,13 @@ function formatTime(minutes, seconds) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(str) {
-  let newString = '';
-  for (let i = 0; i < str.length; i + 1) {
-    newString += str.padStart(2, str[i]);
-  }
-  return newString;
+function reverseString(/* str */) {
+  // let newString = '';
+  // for (let i = 0; i < str.length; i + 1) {
+  //   newString += str.padStart(2, str[i]);
+  // }
+  // return newString;
+  throw new Error('Not implemented');
 }
 
 /**
