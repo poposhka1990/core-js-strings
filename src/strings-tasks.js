@@ -156,9 +156,15 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  // return str.replace(value, '');
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  let newStr = '';
+  if (str.match(value)) {
+    const index = str.indexOf(value);
+    newStr = str.slice(0, index) + str.slice(index + value.length);
+  } else {
+    return str;
+  }
+  return newStr;
 }
 
 /**
@@ -173,8 +179,14 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  const lastOccurrence = str.lastIndexOf(value);
+  if (lastOccurrence < 0) {
+    return str;
+  }
+  const partOne = str.substring(0, lastOccurrence);
+  const partTwo = str.substring(lastOccurrence + value.length);
+  return partOne + partTwo;
 }
 
 /**
@@ -265,13 +277,12 @@ function formatTime(minutes, seconds) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  // let newString = '';
-  // for (let i = 0; i < str.length; i + 1) {
-  //   newString += str.padStart(2, str[i]);
-  // }
-  // return newString;
-  throw new Error('Not implemented');
+function reverseString(str) {
+  let newString = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    newString += str[i];
+  }
+  return newString;
 }
 
 /**
@@ -348,7 +359,7 @@ function countVowels(str) {
  * https://en.wikipedia.org/wiki/Palindrome
  *
  * @param {string} str - The input string.
- * @return {bool} - True if the string is a palindrome, false otherwise.
+ * @return {boolean} - True if the string is a palindrome, false otherwise.
  *
  * @example:
  *   isPalindrome('madam') => true
@@ -357,6 +368,16 @@ function countVowels(str) {
  *   isPalindrome('No lemon, no melon') => true
  */
 function isPalindrome(/* str */) {
+  // let newStr = '';
+  // if (str[str.length - 1] === '!' || str[str.length - 1] === '?') {
+  //   newStr = str.toLowerCase().replace(str[str.length - 1], '');
+  //   for (let i = 0; i < newStr.length / 2; i += 1) {
+  //     if (newStr[i] !== newStr[newStr.length - 1 - i]) {
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // }
   throw new Error('Not implemented');
 }
 
